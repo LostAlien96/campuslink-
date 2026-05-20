@@ -71,6 +71,11 @@ app.use((err, req, res, next) => {
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`CampusLink API running on port ${PORT}`);
-});
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`CampusLink API running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
