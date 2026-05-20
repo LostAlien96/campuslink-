@@ -13,10 +13,21 @@ const app = express();
 // Only allow requests from our frontend origin.
 // credentials: true is required to send/receive httpOnly cookies (refresh tokens).
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: function(origin, callback) {
+    const allowed = [
+      process.env.FRONTEND_URL,
+      'http://localhost:5173',
+    ].filter(Boolean);
+    if (!origin || allowed.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 
+app.options('*', cors());  // ← add this line
 // ─── 2. Body parsing ──────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10kb' })); // Reject huge payloads
 app.use(cookieParser());
