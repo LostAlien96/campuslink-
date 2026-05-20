@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
-
+app.set('trust proxy', 1);  
 // ─── CORS — manual, works on Vercel serverless ────────────────
 app.use((req, res, next) => {
   const allowedOrigins = [
