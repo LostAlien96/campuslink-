@@ -111,9 +111,13 @@ export const connections = {
 
 // ─── Groups ───────────────────────────────────────────────────────────────────
 export const groups = {
-  browse:     ()            => request('/groups'),
-  create:     (data)        => request('/groups', { method: 'POST', body: JSON.stringify(data) }),
-  join:       (groupId)     => request(`/groups/${groupId}/join`, { method: 'POST' }),
+  browse:        ()               => request('/groups'),
+  getById:       (id)             => request(`/groups/${id}`),
+  create:        (data)           => request('/groups', { method: 'POST', body: JSON.stringify(data) }),
+  update:        (id, data)       => request(`/groups/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  join:          (groupId)        => request(`/groups/${groupId}/join`, { method: 'POST' }),
   respondMember: (groupId, userId, status) =>
-    request(`/groups/${groupId}/members/${userId}`, { method: 'PUT', body: JSON.stringify({ status }) }),
+    request(`/groups/${groupId}/members/${userId}/respond`, { method: 'PUT', body: JSON.stringify({ status }) }),
+  promoteMember: (groupId, userId) =>
+    request(`/groups/${groupId}/members/${userId}/promote`, { method: 'PUT' }),
 };
