@@ -148,7 +148,7 @@ const users = [
   { name: 'Saurabh Pillai',  email: 'saurabh@college.edu',  branch: 'CSE',  year: 3, bio: 'Full-stack + cloud. Built a SaaS tool used by 200+ students in college.',
     skills: [['React','strong'],['Node.js','strong'],['AWS','building'],['PostgreSQL','building']] },
 
-  { name: 'Meghna Tripathi', email: ' ',   branch: 'ECE',  year: 2, bio: 'Robotics club lead. Combining hardware skills with computer vision.',
+  { name: 'Meghna Tripathi', email: 'meghna@college.edu',   branch: 'ECE',  year: 2, bio: 'Robotics club lead. Combining hardware skills with computer vision.',
     skills: [['Python','building'],['OpenCV','learning'],['C++','strong'],['ROS','curious']] },
 
   { name: 'Aryan Kapoor',    email: 'aryan@college.edu',    branch: 'IT',   year: 4, bio: 'Startup guy. Co-founded a campus delivery app. Now looking for next idea.',
