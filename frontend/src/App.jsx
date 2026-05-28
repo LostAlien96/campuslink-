@@ -7,7 +7,7 @@ import Discover     from './pages/Discover';
 import Connections  from './pages/Connections';
 import Groups       from './pages/Groups';
 import Profile      from './pages/Profile';
-
+import Feed from './pages/Feed';
 // Wraps routes that require authentication.
 // If the user isn't logged in, redirect to /login.
 // Shows nothing while we're checking the session (loading state).
@@ -57,9 +57,13 @@ export default function App() {
               <Layout><Profile /></Layout>
             </Protected>
           } />
-
+          <Route path="/feed" element={
+  <Protected>
+    <Layout><Feed /></Layout>
+  </Protected>
+} />
           {/* Default redirect */}
-          <Route path="*" element={<Navigate to="/discover" replace />} />
+          <Route path="*" element={<Navigate to="/feed" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

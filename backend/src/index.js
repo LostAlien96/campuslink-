@@ -53,6 +53,7 @@ app.use(generalLimiter);
 // ─── Routes ───────────────────────────────────────────────────
 app.use('/auth',        require('./routes/auth'));
 app.use('/users',       require('./routes/users'));
+app.use('/posts',       require('./routes/posts'));
 app.use('/connections', (req, res, next) => {
   if (req.method === 'POST') return connectionLimiter(req, res, next);
   next();

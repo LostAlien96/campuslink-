@@ -121,3 +121,13 @@ export const groups = {
   promoteMember: (groupId, userId) =>
     request(`/groups/${groupId}/members/${userId}/promote`, { method: 'PUT' }),
 };
+export const posts = {
+  feed:           ()                    => request('/posts/feed'),
+  create:         (data)                => request('/posts', { method: 'POST', body: JSON.stringify(data) }),
+  delete:         (id)                  => request(`/posts/${id}`, { method: 'DELETE' }),
+  toggleReaction: (id, type)            => request(`/posts/${id}/reactions`, { method: 'POST', body: JSON.stringify({ type }) }),
+  getComments:    (id)                  => request(`/posts/${id}/comments`),
+  addComment:     (id, content, parent_id) => request(`/posts/${id}/comments`, { method: 'POST', body: JSON.stringify({ content, parent_id }) }),
+  deleteComment:  (postId, commentId)   => request(`/posts/${postId}/comments/${commentId}`, { method: 'DELETE' }),
+  getStreak:      (userId)              => request(`/posts/streak/${userId}`),
+};

@@ -3,11 +3,11 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
 
 const NAV = [
-  { to: '/discover', label: 'Discover' },
+  { to: '/discover',    label: 'Discover' },
   { to: '/connections', label: 'Connections' },
-  { to: '/groups', label: 'Groups' },
+  { to: '/groups',      label: 'Groups' },
+  { to: '/feed',        label: 'Feed' },
 ];
-
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
