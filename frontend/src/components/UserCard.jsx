@@ -35,8 +35,18 @@ export default function UserCard({ user }) {
             {user.name}
           </Link>
           <div style={{ color: 'var(--muted)', fontSize: 12, marginTop: 2 }}>
-            {[user.branch, yearLabel].filter(Boolean).join(' · ')}
-          </div>
+  {[user.branch, yearLabel].filter(Boolean).join(' · ')}
+</div>
+{user.college && (
+  <div style={{ color: 'var(--muted)', fontSize: 11, marginTop: 1 }}>
+    🎓 {user.college}
+  </div>
+)}
+{user.location && (
+  <div style={{ color: 'var(--muted)', fontSize: 11, marginTop: 1 }}>
+    📍 {user.location}
+  </div>
+)}
         </div>
         {/* Avatar placeholder */}
         <div style={{

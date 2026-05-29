@@ -96,6 +96,7 @@ export const auth = {
 // ─── Users ────────────────────────────────────────────────────────────────────
 export const users = {
   browse:      (params = {}) => request(`/users?${new URLSearchParams(params)}`),
+  me:          ()            => request('/users/me'),
   getById:     (id)          => request(`/users/${id}`),
   updateMe:    (data)        => request('/users/me', { method: 'PUT', body: JSON.stringify(data) }),
   addSkill:    (data)        => request('/users/me/skills', { method: 'POST', body: JSON.stringify(data) }),
